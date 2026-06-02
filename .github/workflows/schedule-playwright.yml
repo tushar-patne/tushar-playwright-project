@@ -1,10 +1,13 @@
-name: Playwright E2E
+name: Playwright Scheduled E2E
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  schedule:
+    - cron: '0 02 * * *'  # daily at 02:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: nightly-playwright
+  cancel-in-progress: false
 
 jobs:
   test:
