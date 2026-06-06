@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
+    "test:last-failed": "npx playwright test --last-failed",
     "test:headed": "npx playwright test --headed",
     "test:ci": "npx playwright install && npx playwright test --output=test-results",
     "report": "npx playwright show-report"

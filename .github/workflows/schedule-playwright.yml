@@ -2,7 +2,7 @@ name: Playwright Scheduled E2E
 
 on:
   schedule:
-    - cron: '0 02 * * *'  # daily at 02:00 UTC
+    - cron: '0 02 * * 1'  # Mondays at 02:00 UTC
   workflow_dispatch:
 
 concurrency:
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20' 
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test --output=test-results
@@ -27,4 +27,5 @@ jobs:
           path: |
             playwright-report
             test-results
-          retention-days: 8
+          retention-days: 18
+      

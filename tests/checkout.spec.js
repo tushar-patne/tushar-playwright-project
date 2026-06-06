@@ -55,6 +55,6 @@ test.describe('Sauce Demo checkout scenarios', () => {
     await cartPage.goToCheckout();
     await checkoutInfoPage.fillCustomerInfo(customer.firstName, customer.lastName, customer.postalCode);
     await checkoutInfoPage.continue();
-    await checkoutOverviewPage.expectTotalContains('Total:');
+    await checkoutOverviewPage.expectTotalContains('Totall:');
   });
 });
